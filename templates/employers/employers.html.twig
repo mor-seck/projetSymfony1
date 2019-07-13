@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Employer{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class='col-lg-2'></div>
+            <div class='col-lg-8'>
+            {# ici c'est mon code pour modifier un  #}
+            <h1>
+                {% if modedit %}
+                Modifier un Employer
+                {% else %}
+                 Ajouter un employer  
+                 {% endif %}
+            </h1>
+            </div>
+            <div class='col-lg-2'></div>
+        </div>
+    {{form_start(formEmployer)}}
+        {{form_row(formEmployer.matricule)}}
+        {{form_row(formEmployer.nom)}}
+        {{form_row(formEmployer.datenaiss)}}
+        {{form_row(formEmployer.salaire)}}
+        {{form_row(formEmployer.service)}}
+        <button type="submit" class="btn btn-primary">
+            {% if modedit %}
+                Enregistrer
+                {% else %}
+                 Ajouter  
+            {% endif %}
+        </button>
+    {{form_end(formEmployer)}}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Service{% endblock %}
+
+{% block body %}
+  
+        <div class="row">
+            <div class='col-lg-4'></div>
+            <div class='col-lg-4'><h1>Ajouter un Service</h1></div>
+            <div class='col-lg-4'></div>
+        </div>
+    {{form_start(formService)}}
+        {{form_row(formService.libelle)}}
+       
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+       
+    {{form_end(formService)}}
+{% endblock %}
