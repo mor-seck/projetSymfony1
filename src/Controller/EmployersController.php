@@ -45,16 +45,13 @@ class EmployersController extends AbstractController{
         if(!$employer){
              $employer= new Employer();
         }
-      
         $form=$this->createFormBuilder($employer)
                     ->add('matricule',TextType::class,['attr'=> ['placeholder' => 'matricule']])
                     ->add('nom',TextType::class,['attr'=> ['placeholder' => 'nom complét']])
                     ->add('salaire',MoneyType::class,['attr'=> ['placeholder' => "Salaire de l'employer"]])
                     ->add('datenaiss',DateType::class,['widget'=>'single_text'])
                     ->add('service',EntityType::class, ['class' => Service::class,'choice_label' => 'libelle'])
-                    
                     ->getForm();
-
                 $form->handleRequest($request);
                 if($form->isSubmitted() && $form->isValid()){
                     $manager->persist($employer);
@@ -64,8 +61,6 @@ class EmployersController extends AbstractController{
              'formEmployer' =>$form->createView(),
              'modedit' =>$employer->getId()!== NULL
         ]);
-    
-
        // return $this->redirectToRoute('lister_employers');
     }
 
@@ -85,10 +80,24 @@ class EmployersController extends AbstractController{
     }
 
     /**
+     * @Route("/employers/lister_services", name="lister_services")
+     */
+    public function lister_service()
+    {
+        $services=$this->getDoctrine()->getRepository(Service::class)->findAll();
+      
+        return $this->render('employers/lister_service.html.twig', [
+            
+            'serives'=>$services
+        ]);
+
+    }
+
+    /**
      *  @Route("/employers/{id}/supp", name="employers_supp")
      * @return Response
      */
-    public function supp(Employer $employer )
+    public function supp(Employer $employer)
     {
         $emp=$this->getDoctrine()->getManager();
         $emp->remove($employer);
