@@ -1,4 +1,4 @@
-{% extends "base.twig.html" %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Service{% endblock %}
 
@@ -10,7 +10,8 @@
             <div class='col-lg-4'></div>
         </div>
     {{form_start(formService)}}
-        {{form_row(formService.libelle)}}
+
+    {{form_row(formService.libelle)}}
        
         <button type="submit" class="btn btn-primary">Ajouter</button>
        

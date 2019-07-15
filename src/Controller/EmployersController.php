@@ -86,9 +86,9 @@ class EmployersController extends AbstractController{
     {
         $services=$this->getDoctrine()->getRepository(Service::class)->findAll();
       
-        return $this->render('employers/lister_service.html.twig', [
+        return $this->render('employers/lister_services.html.twig', [
             
-            'serives'=>$services
+            'services'=>$services
         ]);
 
     }
@@ -125,7 +125,9 @@ class EmployersController extends AbstractController{
                     $manager->persist($service);
                     $manager->flush();
                 }
-            return $this->render('employers/services.html.twig',['formService' =>$form->createView()]);
+            return $this->render('employers/services.html.twig',[
+                'formService' =>$form->createView()
+                ]);
     }
 
 

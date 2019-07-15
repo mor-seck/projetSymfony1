@@ -21,7 +21,10 @@ class Service
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=2,max=3,minMessage="Le libelllé doit contenir au moins 10 caractères",maxMessage="Le libellé ne doit pas dépasser 20 caractères")
+     * @Assert\Length(
+     * min=2,max=15,
+     * minMessage="Le libelllé doit contenir au moins 10 caractères",
+     * maxMessage="Le libellé ne doit pas dépasser 20 caractères")
      */
     private $libelle;
 
