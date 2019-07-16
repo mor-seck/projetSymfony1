@@ -5,26 +5,32 @@
 
 {% block body %}
     <div class="container">
+    
         <div class="row">
-            <div class='col-lg-2'></div>
-            <div class='col-lg-8'>
+            <div class='col-lg-4'></div>
+            <div class='col-lg-4'>
             {# ici c'est mon code pour modifier un  #}
-            <h1>
+            <h4>
                 {% if modedit %}
-                Modifier un Employer
+                MODIFIER UN EMPLOYER
                 {% else %}
-                 Ajouter un employer  
+                 AJOUTER UN EMPLOYER  
                  {% endif %}
-            </h1>
+            </h4>
             </div>
-            <div class='col-lg-2'></div>
+            <div class='col-lg-4'></div>
         </div>
-    {{form_start(formEmployer)}}
-        {{form_row(formEmployer.matricule)}}
-        {{form_row(formEmployer.nom)}}
-        {{form_row(formEmployer.datenaiss)}}
-        {{form_row(formEmployer.salaire)}}
-        {{form_row(formEmployer.service)}}
+        <hr>
+     
+        {{form_start(formEmployer)}}
+         <div class="row">
+            <div class='col-lg-2'></div>
+        <div class='col-lg-8'>
+            {{form_row(formEmployer.matricule)}}
+            {{form_row(formEmployer.nom)}}
+            {{form_row(formEmployer.datenaiss)}}
+            {{form_row(formEmployer.salaire)}}
+            {{form_row(formEmployer.service)}}
         <button type="submit" class="btn btn-primary">
             {% if modedit %}
                 Enregistrer
@@ -33,4 +39,10 @@
             {% endif %}
         </button>
     {{form_end(formEmployer)}}
+            
+            
+            </div>
+            <div class='col-lg-2'></div>
+        </div>
+   
 {% endblock %}
